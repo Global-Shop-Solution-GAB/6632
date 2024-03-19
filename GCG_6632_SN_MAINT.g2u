@@ -1,0 +1,409 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.Form..Create(BaseForm)
+Gui.Form..Caption("Customer's Serial Number Maintenance")
+Gui.Form..Size(695,800)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..AlwaysOnTop(False)
+Gui.Form..FontName("Tahoma")
+Gui.Form..FontSize(8.25)
+Gui.Form..ControlBox(True)
+Gui.Form..MaxButton(True)
+Gui.Form..MinButton(True)
+Gui.Form..MousePointer(0)
+Gui.Form..Moveable(True)
+Gui.Form..Sizeable(True)
+Gui.Form..ShowInTaskBar(True)
+Gui.Form..TitleBar(True)
+Gui.Form..Event(UnLoad,Form_UnLoad)
+Gui.Form.SplitContainer1.Create(SplitContainer)
+Gui.Form.SplitContainer1.Enabled(True)
+Gui.Form.SplitContainer1.Visible(True)
+Gui.Form.SplitContainer1.Zorder(0)
+Gui.Form.SplitContainer1.Size(683,758)
+Gui.Form.SplitContainer1.Position(6,5)
+Gui.Form.SplitContainer1.Orientation(1)
+Gui.Form.SplitContainer1.SplitterPosition(95)
+Gui.Form.SplitContainer1.Collapsed(False)
+Gui.Form.SplitContainer1.Anchor(15)
+Gui.Form.GsGcDisplay.Create(GsGridControl)
+Gui.Form.GsGcDisplay.Enabled(True)
+Gui.Form.GsGcDisplay.Visible(True)
+Gui.Form.GsGcDisplay.Zorder(0)
+Gui.Form.GsGcDisplay.Size(674,642)
+Gui.Form.GsGcDisplay.Position(6,3)
+Gui.Form.GsGcDisplay.Parent("SplitContainer1",1)
+Gui.Form.GsGcDisplay.Event(RowClick,GsGcDisplay_RowClick)
+Gui.Form.lbl1.Create(Label,"Customer",True,46,13,0,9,7,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl1.BorderStyle(0)
+Gui.Form.lbl1.Parent("SplitContainer1",0)
+Gui.Form.lbl3.Create(Label,"Prefix",True,28,13,0,270,7,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl3.BorderStyle(0)
+Gui.Form.lbl3.Parent("SplitContainer1",0)
+Gui.Form.lbl4.Create(Label,"Seq Mask",True,45,13,0,334,7,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl4.BorderStyle(0)
+Gui.Form.lbl4.Parent("SplitContainer1",0)
+Gui.Form.lbl5.Create(Label,"Suffix",True,28,13,0,409,7,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl5.BorderStyle(0)
+Gui.Form.lbl5.Parent("SplitContainer1",0)
+Gui.Form.lbl6.Create(Label,"Jump",True,25,13,0,462,7,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl6.BorderStyle(0)
+Gui.Form.lbl6.Parent("SplitContainer1",0)
+Gui.Form.lbl7.Create(Label,"Copies",True,32,13,0,513,7,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl7.BorderStyle(0)
+Gui.Form.lbl7.Parent("SplitContainer1",0)
+Gui.Form.txtCust.Create(TextBox,"",True,67,20,0,9,23,True,0,"Tahoma",8.25,,1)
+Gui.Form.txtCust.Parent("SplitContainer1",0)
+Gui.Form.cmdCustBrw.Create(Button)
+Gui.Form.cmdCustBrw.Enabled(True)
+Gui.Form.cmdCustBrw.Visible(True)
+Gui.Form.cmdCustBrw.Zorder(0)
+Gui.Form.cmdCustBrw.Size(27,23)
+Gui.Form.cmdCustBrw.Position(81,22)
+Gui.Form.cmdCustBrw.Caption("^")
+Gui.Form.cmdCustBrw.FontName("Tahoma")
+Gui.Form.cmdCustBrw.FontSize(8.25)
+Gui.Form.cmdCustBrw.Parent("SplitContainer1",0)
+Gui.Form.cmdCustBrw.Event(Click,cmdCustBrw_Click)
+Gui.Form.txtPart.Create(TextBox,"",True,100,20,0,115,23,True,0,"Tahoma",8.25,,1)
+Gui.Form.txtPart.Parent("SplitContainer1",0)
+Gui.Form.cmdPartBrw.Create(Button)
+Gui.Form.cmdPartBrw.Enabled(True)
+Gui.Form.cmdPartBrw.Visible(True)
+Gui.Form.cmdPartBrw.Zorder(0)
+Gui.Form.cmdPartBrw.Size(27,23)
+Gui.Form.cmdPartBrw.Position(222,22)
+Gui.Form.cmdPartBrw.Caption("^")
+Gui.Form.cmdPartBrw.FontName("Tahoma")
+Gui.Form.cmdPartBrw.FontSize(8.25)
+Gui.Form.cmdPartBrw.Parent("SplitContainer1",0)
+Gui.Form.cmdPartBrw.Event(Click,cmdPartBrw_Click)
+Gui.Form.txtPrefix.Create(TextBox,"",True,52,20,0,258,23,True,0,"Tahoma",8.25,,1)
+Gui.Form.txtPrefix.Parent("SplitContainer1",0)
+Gui.Form.txtMask.Create(TextBox,"",True,78,20,0,317,23,True,0,"Tahoma",8.25,,1)
+Gui.Form.txtMask.Parent("SplitContainer1",0)
+Gui.Form.txtSuffix.Create(TextBox,"",True,46,20,0,400,23,True,0,"Tahoma",8.25,,1)
+Gui.Form.txtSuffix.Parent("SplitContainer1",0)
+Gui.Form.txtJump.Create(TextBox,"1",True,50,20,0,450,23,True,2,"Tahoma",8.25,,1)
+Gui.Form.txtJump.Parent("SplitContainer1",0)
+Gui.Form.txtJump.NumericOnly(2)
+Gui.Form.txtCopies.Create(TextBox,"1",True,50,20,0,504,23,True,2,"Tahoma",8.25,,1)
+Gui.Form.txtCopies.Parent("SplitContainer1",0)
+Gui.Form.txtCopies.NumericOnly(2)
+Gui.Form.cmdSave.Create(Button)
+Gui.Form.cmdSave.Enabled(True)
+Gui.Form.cmdSave.Visible(True)
+Gui.Form.cmdSave.Zorder(0)
+Gui.Form.cmdSave.Size(75,23)
+Gui.Form.cmdSave.Position(604,71)
+Gui.Form.cmdSave.Caption("Save")
+Gui.Form.cmdSave.FontName("Tahoma")
+Gui.Form.cmdSave.FontSize(8.25)
+Gui.Form.cmdSave.Parent("SplitContainer1",0)
+Gui.Form.cmdSave.Anchor(9)
+Gui.Form.cmdSave.Event(Click,cmdSave_Click)
+Gui.Form.cmdDelete.Create(Button)
+Gui.Form.cmdDelete.Enabled(True)
+Gui.Form.cmdDelete.Visible(True)
+Gui.Form.cmdDelete.Zorder(0)
+Gui.Form.cmdDelete.Size(75,23)
+Gui.Form.cmdDelete.Position(523,71)
+Gui.Form.cmdDelete.Caption("Delete")
+Gui.Form.cmdDelete.FontName("Tahoma")
+Gui.Form.cmdDelete.FontSize(8.25)
+Gui.Form.cmdDelete.Parent("SplitContainer1",0)
+Gui.Form.cmdDelete.Anchor(9)
+Gui.Form.cmdDelete.Event(Click,cmdDelete_Click)
+Gui.Form.lbl2.Create(Label,"Part Number",True,60,13,0,118,7,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl2.BorderStyle(0)
+Gui.Form.lbl2.Parent("SplitContainer1",0)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+f.Intrinsic.Control.Try
+'Author: Alejandro Anazco V.
+'2/11/2022
+'Programmed for Willington Nameplate
+'Purpose: Maintain Customer Serial Number Defaults 
+	f.Intrinsic.UI.UsePixels ' Allows you to use Pixels instead of Twips throughout
+	'Create Display
+	f.Intrinsic.Control.CallSub(createDisplayDT)
+	'Load Properties
+	f.Intrinsic.Control.CallSub(loadGridProperties)
+	'Refresh
+	f.Intrinsic.Control.CallSub(refreshDisplay)
+	'Show
+	gui.Form..Show
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.createDisplayDT.Start
+f.Intrinsic.Control.Try
+	'Create DT from SQL
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.Data.Datatable.CreateFromSQL("displayDT", "con", "Select * from GCG_6632_SN_MAINT where Customer = '-1'", True)
+	f.ODBC.Connection!con.Close
+	
+	f.Data.DataView.Create("displayDT", "displayDV", 22)
+	gui.Form.GsGcDisplay.AddGridviewFromDataview("displayGV", "displayDT", "displayDV")
+	gui.Form.GsGcDisplay.MainView("displayGV")
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.createDisplayDT.End
+
+Program.Sub.loadGridProperties.Start
+v.Local.iCnt.Declare
+v.Local.sFields.Declare
+v.Local.iVisibleIndex.Declare
+
+f.Intrinsic.Control.Try
+	f.Intrinsic.String.Split(v.DataTable.displayDT.FieldNames, "*!*", v.Local.sFields)
+	f.Intrinsic.Control.For(v.Local.iCnt, 0, v.Local.sFields.UBound, 1)
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "HeaderFontBold", True)
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "Visible", True)
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "ReadOnly", True)
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "AllowEdit", False)
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "HeaderHAlignment", "Near")
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "CellHAlignment", "Near")
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "HeaderBackColor", v.Color.GSS)
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "HeaderForeColor", v.Color.White)
+	f.Intrinsic.Control.Next(v.Local.iCnt)
+	
+	'GridView Properties
+	gui.Form.GsGcDisplay.BestFitColumns("displayGV")
+	gui.Form.GsGcDisplay.SetGridviewProperty("displayGV", "OptionsViewColumnAutoWidth", False)
+	'gui.Form.GsGcDisplay.SetGridviewProperty("displayGV", "OptionsViewShowAutoFilterRow", True)
+	'gui.Form.GsGcDisplay.SetGridviewProperty("displayGV", "OptionsFindAlwaysVisible", True)
+	'gui.Form.GsGcDisplay.SetGridviewProperty("displayGV", "Showgrouppanel", True)
+	
+	'Possible Column Properties 
+	'gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Default", "ReadOnly", False)
+	'gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Default", "AllowEdit", True)
+	'gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Default", "HeaderHAlignment", "Center")
+	'gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Default", "CellHAlignment", "Center")
+	'gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Default", "Caption", "Default")
+	'gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Default", "Visible", False)
+	'gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Default", "DisplayCustomDatetime", "d")
+	
+	'VisibleIndex
+	'gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Default", "VisibleIndex", v.Local.iVisibleIndex)
+	'gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Default", "VisibleIndex", v.Local.iVisibleIndex.++)
+	
+	'Conditional Formatting
+'	gui.Form.GsGcDisplay.AddStyleFormatCondition("displayGV", "columnName", "TagName", "EQUAL", 1)
+'	gui.Form.GsGcDisplay.SetStyleFormatConditionProperty("displayGV", "columnName", "TagName", "ApplyToRow", True) 
+'	gui.Form.GsGcDisplay.SetStyleFormatConditionProperty("displayGV", "columnName", "TagName", "BackColor", "Color") 
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.loadGridProperties.End
+
+Program.Sub.ErrorMsg.Start
+v.Local.sError.Declare
+
+'Generic Error message.
+f.Intrinsic.String.Build("Project GCG_6632_SN_MAINT.g2u {0}{0}Subroutine: {1}{0}Error: {2} with Description: {3}", v.Ambient.NewLine, v.Args.CurrentSub, v.Ambient.ErrorNumber, v.Ambient.ErrorDescription, v.Local.sError)
+f.Intrinsic.UI.Msgbox(v.Local.sError)
+Program.Sub.ErrorMsg.End
+
+Program.Sub.GsGcDisplay_RowClick.Start
+v.Local.sCustomer.Declare
+v.Local.sPart.Declare
+v.Local.sPrefix.Declare
+v.Local.sMask.Declare
+v.Local.sSuffix.Declare
+v.Local.iSeq.Declare
+v.Local.iCopies.Declare
+f.Intrinsic.Control.Try
+	'Block Events
+	f.Intrinsic.Control.BlockEvents
+	'Get Values from Grid
+	gui.Form.GsGcDisplay.GetCellValueByColumnName("displayGV", "Customer", v.Args.RowIndex, v.Local.sCustomer)
+	gui.Form.GsGcDisplay.GetCellValueByColumnName("displayGV", "Part", v.Args.RowIndex, v.Local.sPart)
+	gui.Form.GsGcDisplay.GetCellValueByColumnName("displayGV", "Prefix", v.Args.RowIndex, v.Local.sPrefix)
+	gui.Form.GsGcDisplay.GetCellValueByColumnName("displayGV", "Mask", v.Args.RowIndex, v.Local.sMask)
+	gui.Form.GsGcDisplay.GetCellValueByColumnName("displayGV", "Suffix", v.Args.RowIndex, v.Local.sSuffix)
+	gui.Form.GsGcDisplay.GetCellValueByColumnName("displayGV", "Jump", v.Args.RowIndex, v.Local.iSeq)
+	gui.Form.GsGcDisplay.GetCellValueByColumnName("displayGV", "Copies", v.Args.RowIndex, v.Local.iCopies)
+	'Set Screem Values
+	gui.Form.txtCust.Text(v.Local.sCustomer)
+	gui.Form.txtPart.Text(v.Local.sPart)
+	gui.Form.txtPrefix.Text(v.Local.sPrefix)
+	gui.Form.txtMask.Text(v.Local.sMask)
+	gui.Form.txtSuffix.Text(v.Local.sSuffix)
+	gui.Form.txtJump.Text(v.Local.iSeq)
+	gui.Form.txtCopies.Text(v.Local.iCopies)
+	'Unblock Events
+	f.Intrinsic.Control.UnBlockEvents
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.UnBlockEvents
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.GsGcDisplay_RowClick.End
+
+Program.Sub.cmdCustBrw_Click.Start
+v.Local.sRet.Declare
+f.Intrinsic.Control.Try
+	'Common Browser
+	f.Intrinsic.UI.Browser(205, , v.Local.sRet)
+	'Check for Cancel
+	f.Intrinsic.Control.If(v.Local.sRet, =, "***CANCEL***")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	'Split
+	f.Intrinsic.String.Split(v.Local.sRet, "*!*", v.Local.sRet)
+	gui.Form.txtCust.Text(v.Local.sRet(0))
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdCustBrw_Click.End
+
+Program.Sub.cmdPartBrw_Click.Start
+v.Local.sRet.Declare
+f.Intrinsic.Control.Try
+	'Common Browser
+	f.Intrinsic.UI.Browser(105, , v.Local.sRet)
+	'Check for Cancel
+	f.Intrinsic.Control.If(v.Local.sRet, =, "***CANCEL***")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	'Split
+	f.Intrinsic.String.Split(v.Local.sRet, "*!*", v.Local.sRet)
+	gui.Form.txtPart.Text(v.Local.sRet(0))
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdPartBrw_Click.End
+
+Program.Sub.cmdDelete_Click.Start
+v.Local.sCust.Declare
+v.Local.sPart.Declare
+v.Local.sSQL.Declare
+v.Local.iRet.Declare
+v.Local.sMsg.Declare
+f.Intrinsic.Control.Try
+	'Get Variables.
+	v.Local.sCust.Set(v.Screen.Form!txtCust.Text)
+	v.Local.sPart.Set(v.Screen.Form!txtPart.Text)
+	'Check they are not empty
+	f.Intrinsic.Control.If(v.Local.sCust.Trim, =, "")
+		f.Intrinsic.UI.Msgbox("Please Select Row to load a Customer.")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.If(v.Local.sPart.Trim, =, "")
+		f.Intrinsic.UI.Msgbox("Please Select Row to load a Part.")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	'Double check with user
+	f.Intrinsic.String.Build("You are about to delete Part: {0} from Customer: {1}.{2}Do you wish to continue?", v.Local.sPart, v.Local.sCust, v.Ambient.NewLine, v.Local.sMsg)
+	f.Intrinsic.UI.Msgbox(v.Local.sMsg, "Delete Rows",4, v.Local.iRet)
+	f.Intrinsic.Control.If(v.Local.iRet, <>, 6)
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	'Create SQL
+	f.Intrinsic.String.Build("Delete From GCG_6632_SN_MAINT Where Customer = '{0}' and Part = '{1}'", v.Local.sCust, v.Local.sPart, v.Local.sSQL)
+	'Execute
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.ODBC.Connection!con.Execute(v.Local.sSQL)
+	f.ODBC.Connection!con.Close
+	'Refresh
+	f.Intrinsic.Control.CallSub(refreshDisplay)
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdDelete_Click.End
+
+Program.Sub.cmdSave_Click.Start
+v.Local.sSQL.Declare
+v.Local.sCustomer.Declare
+v.Local.sPart.Declare
+v.Local.sPrefix.Declare
+v.Local.sMask.Declare
+v.Local.sSuffix.Declare
+v.Local.iSeq.Declare
+v.Local.iCopies.Declare
+v.Local.sTemp.Declare
+f.Intrinsic.Control.Try
+	'Get Variables
+	v.Local.sCustomer.Set(v.Screen.Form!txtCust.Text)
+	v.Local.sPart.Set(v.Screen.Form!txtPart.Text)
+	v.Local.sPrefix.Set(v.Screen.Form!txtPrefix.Text)
+	v.Local.sMask.Set(v.Screen.Form!txtMask.Text)
+	v.Local.sSuffix.Set(v.Screen.Form!txtSuffix.Text)
+	f.Intrinsic.Control.If(v.Local.sCustomer.Trim, =, "")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.If(v.Local.sPart.Trim, =, "")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	'Block Events
+	f.Intrinsic.Control.BlockEvents
+	'Get Seq
+	v.Local.sTemp.Set(v.Screen.Form!txtJump.Text)
+	f.Intrinsic.Control.If(v.Local.sTemp.Trim, =, "")
+		gui.Form.txtJump.Text(1)
+	f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.If(v.Local.sTemp.Trim, =, "0")
+		gui.Form.txtJump.Text(1)
+	f.Intrinsic.Control.EndIf
+	v.Local.iSeq.Set(v.Screen.Form!txtJump.Text)
+	'Get Copies
+	v.Local.sTemp.Set(v.Screen.Form!txtCopies.Text)
+	f.Intrinsic.Control.If(v.Local.sTemp.Trim, =, "")
+		gui.Form.txtCopies.Text(1)
+	f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.If(v.Local.sTemp.Trim, =, "0")
+		gui.Form.txtCopies.Text(1)
+	f.Intrinsic.Control.EndIf
+	v.Local.iCopies.Set(v.Screen.Form!txtCopies.Text)
+	'Create DT from SQL
+	f.ODBC.Connection!con.OpenCompanyConnection
+		'Delete 
+		f.Intrinsic.String.Build("Delete From GCG_6632_SN_MAINT Where Customer = '{0}' and Part = '{1}'", v.Local.sCustomer, v.Local.sPart, v.Local.sSQL)
+		f.ODBC.Connection!con.Execute(v.Local.sSQL)
+		'Insert
+		f.Intrinsic.String.Build("Insert into  GCG_6632_SN_MAINT (Customer, Part, Prefix, Mask, Suffix, Jump, Copies) Values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}')", v.Local.sCustomer, v.Local.sPart, v.Local.sPrefix, v.Local.sMask, v.Local.sSuffix, v.Local.iSeq, v.Local.iCopies, v.Local.sSQL)
+		f.ODBC.Connection!con.Execute(v.Local.sSQL)
+	f.ODBC.Connection!con.Close
+	'Refresh
+	f.Intrinsic.Control.CallSub(refreshDisplay)
+	f.Intrinsic.Control.UnBlockEvents
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.UnBlockEvents
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdSave_Click.End
+
+Program.Sub.refreshDisplay.Start
+f.Intrinsic.Control.Try
+	'Create DT from SQL
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.Data.Datatable.CreateFromSQL("tmpDT", "con", "Select * from GCG_6632_SN_MAINT order by Customer, Part asc", False)
+	f.ODBC.Connection!con.Close
+	'Merge
+	f.Data.Datatable.DeleteRow("displayDT")
+	f.Data.Datatable.AcceptChanges("displayDT")
+	f.Data.Datatable.Merge("tmpDT", "displayDT", false, 2)
+	f.Data.Datatable.AcceptChanges("displayDT")
+	f.Data.Datatable.Close("tmpDT")
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.refreshDisplay.End
+
+Program.Sub.Form_UnLoad.Start
+f.Intrinsic.Control.End
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.Comments.Start
+${$5$}$3.0.0.0$}$1
+${$6$}$aanazco$}$20220304115507224$}$7aQAV3Tor/tR9bkuakHbuzQlHVuXCGOzufDXPMv9C0AaA3az3eQDu+AtauLkJlK+T/TWQS4D440=
+Program.Sub.Comments.End
